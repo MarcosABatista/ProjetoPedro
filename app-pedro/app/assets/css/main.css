@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* ====================================================================
+   Design system — Pedro Moura | Personal Trainer de alta performance
+   Assinatura visual: agressiva, escura, energética.
+   - primary: vermelho-fogo (energia, intensidade, treino pesado)
+   - neutral: zinc (quase-preto, estética de academia premium)
+   Fontes: Oswald (títulos, condensada e forte) + Inter (corpo, legível).
+   ==================================================================== */
+
+@theme static {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Oswald', 'Inter', system-ui, sans-serif;
+
+  --ui-radius: 0.5rem;
+  --ui-container: 80rem;
+
+  /* Vermelho-brasa como cor primária — energético, mas mais profundo e sofisticado
+     (menos saturado que o vermelho puro, evita o visual "berrante"). */
+  --color-fogo-50: #FEF3F2;
+  --color-fogo-100: #FEE4E2;
+  --color-fogo-200: #FECDCA;
+  --color-fogo-300: #FDA29B;
+  --color-fogo-400: #F97066;
+  --color-fogo-500: #F04438;
+  --color-fogo-600: #D92D20;
+  --color-fogo-700: #B42318;
+  --color-fogo-800: #912018;
+  --color-fogo-900: #7A271A;
+  --color-fogo-950: #55160C;
+}
+
+/* Títulos usam a fonte display condensada */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Restaura cursor pointer (Tailwind v4 usa default) */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Realce de seleção de texto com a cor da marca */
+::selection {
+  background: var(--color-fogo-600);
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
