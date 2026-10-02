@@ -2,8 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
-    '@nuxt/ui',
-    '@nuxt/image'
+    '@nuxt/ui'
   ],
 
   devtools: {
@@ -11,6 +10,10 @@ export default defineNuxtConfig({
   },
 
   app: {
+    // GitHub Pages de projeto serve em /<repo>/. O baseURL só é aplicado no
+    // build de produção (via NUXT_APP_BASE_URL no workflow), mantendo o dev
+    // local em "/". Fallback '/ProjetoPedro/' garante o caminho certo no deploy.
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       htmlAttrs: { lang: 'pt-br' }
     }
@@ -29,6 +32,11 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2026-06-30',
+
+  // Preset do Nitro para GitHub Pages: gera .nojekyll e o fallback 404.html (SPA)
+  nitro: {
+    preset: 'github_pages'
+  },
 
   eslint: {
     config: {

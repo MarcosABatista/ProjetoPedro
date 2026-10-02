@@ -13,13 +13,13 @@
   >
     <!-- Imagem de fundo + overlays -->
     <div class="absolute inset-0">
-      <NuxtImg
-        src="/img/hero-bg.jpg"
+      <img
+        :src="urlPublica('/img/hero-bg.jpg')"
         alt=""
         class="size-full object-cover object-center opacity-30"
         loading="eager"
         fetchpriority="high"
-      />
+      >
       <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
       <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
     </div>
@@ -99,7 +99,26 @@
             </p>
           </div>
         </div>
-      </div>      
+      </div>
+
+      <!-- Foto do Pedro — visível também no mobile (menor e centralizada), e maior no desktop -->
+      <div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:order-last lg:max-w-md">
+        <!-- Brasa difusa atrás da foto (sem borda dura) -->
+        <div class="absolute -inset-6 rounded-full bg-primary/20 blur-3xl" />
+
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl shadow-black/50">
+          <img
+            :src="urlPublica('/img/pedro2.jpg')"
+            alt="Pedro Moura Filho, personal trainer"
+            class="size-full object-cover object-top"
+            loading="eager"
+          >
+          <!-- Degradê na base para fundir a foto com o fundo escuro -->
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
+          <!-- Moldura tingida de brasa, sem branco -->
+          <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary/30" />
+        </div>
+      </div>
     </div>
   </section>
 </template>

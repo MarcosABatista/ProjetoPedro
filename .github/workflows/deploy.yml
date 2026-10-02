@@ -1,0 +1,70 @@
+# .github/workflows/deploy.yml — Build e deploy do site Nuxt (app-pedro) no GitHub Pages.
+# Gera o site estático com pnpm generate e publica .output/public via GitHub Actions.
+# Dispara a cada push na branch main; o Pages deve estar com Source = GitHub Actions.
+
+name: Deploy do site no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Permite rodar o deploy manualmente pela aba Actions
+  workflow_dispatch:
+
+# Permissões necessárias para o GitHub Pages publicar o artefato
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante um único deploy por vez, sem cancelar execuções em andamento
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # O projeto Nuxt vive na subpasta app-pedro/
+    defaults:
+      run:
+        working-directory: app-pedro
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.3.4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: app-pedro/pnpm-lock.yaml
+
+      - name: Instalar dependências
+        run: pnpm install --frozen-lockfile
+
+      - name: Gerar site estático
+        # NUXT_APP_BASE_URL alinha os caminhos ao subdiretório do Pages (/ProjetoPedro/)
+        run: pnpm generate
+        env:
+          NUXT_APP_BASE_URL: /ProjetoPedro/
+
+      - name: Enviar artefato do Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: app-pedro/.output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -50,12 +50,12 @@
             {{ item.texto }}
           </p>
           <div class="mt-6 flex items-center gap-3 border-t border-white/10 pt-6">
-            <NuxtImg
-              :src="item.foto"
+            <img
+              :src="urlPublica(item.foto)"
               :alt="`Foto de ${item.nome}`"
               class="size-12 rounded-full object-cover ring-2 ring-primary/40"
               loading="lazy"
-            />
+            >
             <div>
               <p class="font-display font-semibold uppercase tracking-wide text-white">
                 {{ item.nome }}

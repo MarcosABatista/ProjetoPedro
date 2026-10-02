@@ -5,8 +5,11 @@
 const titulo = 'Pedro Moura | Personal Trainer de Alta Performance'
 const descricao = 'Treinamento personalizado baseado em ciência: biomecânica, fisiologia do exercício e antropometria ISAK. Transforme seu corpo com acompanhamento profissional.'
 
+// baseURL do runtime garante o caminho certo do favicon em dev (/) e no Pages (/ProjetoPedro/)
+const { app: { baseURL } } = useRuntimeConfig()
+
 useHead({
-  link: [{ rel: 'icon', href: '/favicon.ico' }]
+  link: [{ rel: 'icon', href: `${baseURL}favicon.ico` }]
 })
 
 useSeoMeta({
