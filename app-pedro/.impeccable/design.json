@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T00:00:00Z",
+  "title": "Design System: Pedro Moura Filho",
+  "extensions": {
+    "colorMeta": {
+      "papel": { "role": "neutral", "displayName": "Papel Milimetrado", "canonical": "#EEF3EE", "tonalRamp": ["#0B1C19", "#16302B", "#2E4842", "#557569", "#9FB8AD", "#C9D8CF", "#E4ECE7", "#EEF3EE"] },
+      "papel-claro": { "role": "neutral", "displayName": "Papel Claro", "canonical": "#F7FAF6", "tonalRamp": ["#0B1C19", "#16302B", "#2E4842", "#557569", "#9FB8AD", "#C9D8CF", "#F4F8F5", "#F7FAF6"] },
+      "quadricula": { "role": "neutral", "displayName": "Quadrícula Sálvia", "canonical": "#B9CCC3", "tonalRamp": ["#0B1C19", "#16302B", "#2E4842", "#557569", "#75958A", "#B9CCC3", "#E4ECE7", "#F4F8F5"] },
+      "tinta": { "role": "neutral", "displayName": "Tinta de Prontuário", "canonical": "#16302B", "tonalRamp": ["#0B1C19", "#16302B", "#213A35", "#2E4842", "#3D5A52", "#557569", "#9FB8AD", "#E4ECE7"] },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta Suave", "canonical": "#3D5A52", "tonalRamp": ["#0B1C19", "#16302B", "#2E4842", "#3D5A52", "#557569", "#75958A", "#C9D8CF", "#F4F8F5"] },
+      "salvia": { "role": "neutral", "displayName": "Sálvia", "canonical": "#9FB8AD", "tonalRamp": ["#0B1C19", "#16302B", "#2E4842", "#557569", "#75958A", "#9FB8AD", "#C9D8CF", "#F4F8F5"] },
+      "carimbo": { "role": "primary", "displayName": "Laranja Carimbo", "canonical": "#FF5A1F", "tonalRamp": ["#421006", "#7A2711", "#972B11", "#BE330B", "#E5420A", "#FF5A1F", "#FFC4A6", "#FFF3ED"] },
+      "carimbo-claro": { "role": "primary", "displayName": "Laranja Carimbo Claro", "canonical": "#FF7740", "tonalRamp": ["#421006", "#7A2711", "#BE330B", "#E5420A", "#FF7740", "#FF9B6E", "#FFC4A6", "#FFF3ED"] },
+      "carimbo-tinta": { "role": "primary", "displayName": "Tinta de Carimbo", "canonical": "#E5420A", "tonalRamp": ["#421006", "#7A2711", "#972B11", "#BE330B", "#E5420A", "#FF7740", "#FFC4A6", "#FFF3ED"] },
+      "carimbo-texto": { "role": "primary", "displayName": "Laranja de Leitura", "canonical": "#BE330B", "tonalRamp": ["#421006", "#7A2711", "#972B11", "#BE330B", "#E5420A", "#FF7740", "#FFC4A6", "#FFF3ED"] },
+      "carimbo-lavado": { "role": "primary", "displayName": "Laranja Lavado", "canonical": "#FFF3ED", "tonalRamp": ["#421006", "#7A2711", "#BE330B", "#FF5A1F", "#FF9B6E", "#FFC4A6", "#FFE3D3", "#FFF3ED"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título da primeira dobra e chamada final. Caixa-alta, entrelinha >= 0.96." },
+      "headline": { "displayName": "Headline", "purpose": "Título de cada seção. Caixa-alta, text-wrap balance, entrelinha 0.98." },
+      "title": { "displayName": "Title", "purpose": "Títulos de bloco dentro da seção (trilhas, método)." },
+      "title-campo": { "displayName": "Title de campo", "purpose": "Nome de opção, zona, marco, etapa ou autor de depoimento." },
+      "body": { "displayName": "Body", "purpose": "Parágrafos de seção em tinta suave, até ~38rem." },
+      "label": { "displayName": "Label", "purpose": "Rótulos de campo, legendas e cabeçalhos de tabela, caixa-alta." },
+      "medida": { "displayName": "Medida", "purpose": "Só valores medidos com unidade ou escala (bpm, cm, mm, graus, anos). Tabular." },
+      "botao": { "displayName": "Botão", "purpose": "Rótulo dos botões carimbo e traço, caixa-alta." }
+    },
+    "shadows": [
+      { "name": "carimbo-repouso", "value": "0 6px 14px -6px color-mix(in srgb, #BE330B 70%, transparent)", "purpose": "Sob o botão carimbo em repouso." },
+      { "name": "carimbo-erguido", "value": "0 10px 20px -8px color-mix(in srgb, #BE330B 80%, transparent)", "purpose": "Hover do botão carimbo." },
+      { "name": "carimbo-pressionado", "value": "0 2px 6px -3px color-mix(in srgb, #BE330B 80%, transparent)", "purpose": "Estado :active do botão carimbo." },
+      { "name": "faixa-rolagem", "value": "0 8px 20px -14px rgb(22 48 43 / 0.5)", "purpose": "Cabeçalho fixo depois de rolar 24px." },
+      { "name": "foto-presa", "value": "0 10px 24px -10px rgb(22 48 43 / 0.45)", "purpose": "Foto 3x4 presa com clipe." },
+      { "name": "folha-final", "value": "0 18px 40px -24px rgb(22 48 43 / 0.6)", "purpose": "Folha de contato no fechamento da página." }
+    ],
+    "motion": [
+      { "name": "ease-carimbo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Curva padrão de todo movimento: botões, traços, barras de zona." },
+      { "name": "carimbar", "value": "700ms ease-carimbo; scale 1.3 -> 0.96 -> 1, opacity 0.6 -> 1, rotação preservada", "purpose": "Carimbo ISAK pressiona ao entrar na tela." },
+      { "name": "desenhar", "value": "stroke-dashoffset -> 0; 260ms (X da opção), 420ms com 110ms de escalonamento (checks da tabela), 900ms (sublinhado do título)", "purpose": "Marcas de caneta que se desenham a partir de estado já visível." },
+      { "name": "transicao-botao", "value": "180ms ease-carimbo", "purpose": "Transform, sombra e fundo dos botões." },
+      { "name": "barra-zona", "value": "500ms ease-carimbo", "purpose": "Posição e largura das barras de FC." },
+      { "name": "movimento-reduzido", "value": "prefers-reduced-motion: duração 1ms, sem atraso, sem pulso", "purpose": "Respeito obrigatório a movimento reduzido." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão Carimbo",
+      "kind": "button",
+      "refersTo": "botao-carimbo",
+      "description": "Ação principal (WhatsApp): laranja com tinta, contorno de 2px, pressiona ao clicar.",
+      "html": "<a class=\"ds-botao-carimbo\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg>Chamar no WhatsApp</a>",
+      "css": ".ds-botao-carimbo { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 1.5rem; background: #FF5A1F; color: #16302B; border: 2px solid #16302B; border-radius: 0; font-family: Archivo, 'Public Sans', system-ui, sans-serif; font-weight: 800; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.02em; text-decoration: none; box-shadow: 0 6px 14px -6px color-mix(in srgb, #BE330B 70%, transparent); transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms; } .ds-botao-carimbo:hover { background: #FF7740; transform: translateY(-1px); box-shadow: 0 10px 20px -8px color-mix(in srgb, #BE330B 80%, transparent); } .ds-botao-carimbo:active { transform: translateY(1px) scale(0.985); box-shadow: 0 2px 6px -3px color-mix(in srgb, #BE330B 80%, transparent); } .ds-botao-carimbo:focus-visible { outline: 2px solid #E5420A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botão Traço",
+      "kind": "button",
+      "refersTo": "botao-traco",
+      "description": "Ação secundária (Instagram): contorno de tinta sobre papel, inverte no hover.",
+      "html": "<a class=\"ds-botao-traco\" href=\"#\">Instagram</a>",
+      "css": ".ds-botao-traco { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 1.5rem; background: #F7FAF6; color: #16302B; border: 2px solid #16302B; border-radius: 0; font-family: Archivo, 'Public Sans', system-ui, sans-serif; font-weight: 800; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.02em; text-decoration: none; transition: background-color 180ms, color 180ms; } .ds-botao-traco:hover { background: #16302B; color: #EEF3EE; } .ds-botao-traco:focus-visible { outline: 2px solid #E5420A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Campo de Ficha",
+      "kind": "input",
+      "refersTo": "campo-linha",
+      "description": "Campo sem caixa: rótulo caixa-alta à esquerda e linha pontilhada de tinta embaixo.",
+      "html": "<label class=\"ds-campo\"><span class=\"ds-campo-rotulo\">Nome</span><input class=\"ds-campo-linha\" placeholder=\"Como você se chama\"></label>",
+      "css": ".ds-campo { display: grid; grid-template-columns: auto 1fr; align-items: end; gap: 0.75rem; color: #16302B; font-family: 'Public Sans', system-ui, sans-serif; } .ds-campo-rotulo { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; } .ds-campo-linha { width: 100%; border: 0; padding: 0 0 4px; font: inherit; font-size: 1rem; color: #16302B; background-color: transparent; background-image: linear-gradient(to right, #16302B 40%, transparent 0); background-size: 6px 1px; background-repeat: repeat-x; background-position: bottom; outline: none; } .ds-campo-linha::placeholder { color: rgb(61 90 82 / 0.8); } .ds-campo-linha:focus-visible { background-color: #FFF3ED; }"
+    },
+    {
+      "name": "Opção de Trilha",
+      "kind": "custom",
+      "refersTo": "ficha",
+      "description": "Rádio da ficha: caixa quadrada de 2px onde um X em tinta de carimbo se desenha ao marcar.",
+      "html": "<label class=\"ds-opcao\"><input type=\"radio\" name=\"ds-trilha\" checked><span class=\"ds-caixa\"><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M5 5 L15 15 M15 5 L5 15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg></span><span><span class=\"ds-opcao-titulo\">Presencial</span><span class=\"ds-opcao-local\">São Luís, MA</span></span></label>",
+      "css": ".ds-opcao { position: relative; display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; border: 1px solid rgb(22 48 43 / 0.4); color: #16302B; font-family: 'Public Sans', system-ui, sans-serif; cursor: pointer; transition: border-color 150ms, background-color 150ms; } .ds-opcao:hover { border-color: #16302B; } .ds-opcao:has(input:checked) { border-color: #16302B; background: #FFF3ED; } .ds-opcao input { position: absolute; opacity: 0; width: 1px; height: 1px; } .ds-caixa { display: grid; place-items: center; width: 1.25rem; height: 1.25rem; flex-shrink: 0; border: 2px solid #16302B; background: #F7FAF6; color: #E5420A; } .ds-caixa svg { visibility: hidden; } .ds-opcao input:checked + .ds-caixa svg { visibility: visible; } .ds-opcao input:focus-visible + .ds-caixa { outline: 2px solid #E5420A; outline-offset: 2px; } .ds-opcao-titulo { display: block; font-family: Archivo, 'Public Sans', sans-serif; font-weight: 800; font-size: 1rem; text-transform: uppercase; line-height: 1.25; } .ds-opcao-local { display: block; font-size: 0.75rem; color: #3D5A52; }"
+    },
+    {
+      "name": "Opção de Objetivo",
+      "kind": "chip",
+      "refersTo": "opcao-objetivo",
+      "description": "Chip de objetivo: borda fina; selecionado inverte para tinta, não laranja.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip--on\" type=\"button\">Emagrecimento</button><button class=\"ds-chip\" type=\"button\">Performance</button></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; } .ds-chip { padding: 0.375rem 0.75rem; border: 1px solid rgb(22 48 43 / 0.4); border-radius: 0; background: transparent; color: #16302B; font-family: 'Public Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background-color 150ms, color 150ms, border-color 150ms; } .ds-chip:hover { border-color: #16302B; } .ds-chip--on { border-color: #16302B; background: #16302B; color: #EEF3EE; } .ds-chip:focus-visible { outline: 2px solid #E5420A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Navegação de Ficha",
+      "kind": "nav",
+      "refersTo": "ficha",
+      "description": "Faixa de cabeçalho: links em células com divisórias; seção atual com traço laranja de 3px na base.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"location\">Avaliação</a><a href=\"#\">Método</a><a href=\"#\">Zonas de FC</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: stretch; height: 4rem; border-bottom: 2px solid #16302B; background: #EEF3EE; font-family: 'Public Sans', system-ui, sans-serif; } .ds-nav a { position: relative; display: flex; align-items: center; padding: 0 1rem; border-left: 1px solid rgb(22 48 43 / 0.25); color: #16302B; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: background-color 150ms; } .ds-nav a:hover { background: #FFF3ED; } .ds-nav a::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: -2px; height: 3px; background: #FF5A1F; transform: scaleX(0); transform-origin: left; transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a[aria-current]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid #E5420A; outline-offset: -2px; }"
+    },
+    {
+      "name": "Folha da Ficha",
+      "kind": "card",
+      "refersTo": "ficha",
+      "description": "Folha de papel claro com contorno de tinta de 2px, cantos retos, valor medido em mono.",
+      "html": "<div class=\"ds-ficha\"><p class=\"ds-ficha-rotulo\">FC máxima</p><p class=\"ds-ficha-valor\">190 <span>bpm</span></p></div>",
+      "css": ".ds-ficha { padding: 1.5rem; border: 2px solid #16302B; border-radius: 0; background: #F7FAF6; color: #16302B; font-family: 'Public Sans', system-ui, sans-serif; } .ds-ficha-rotulo { margin: 0; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.025em; } .ds-ficha-valor { margin: 0.25rem 0 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 1.5rem; font-weight: 700; color: #BE330B; } .ds-ficha-valor span { font-family: 'Public Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; color: #3D5A52; }"
+    },
+    {
+      "name": "Linha de Zona de FC",
+      "kind": "custom",
+      "refersTo": "ficha",
+      "description": "Célula da zona (em foco = laranja), barra laranja sobre régua de bpm; o peso do número sobe com a zona.",
+      "html": "<div class=\"ds-zona\"><span class=\"ds-zona-num ds-zona-num--foco\">4</span><div class=\"ds-zona-trilho\"><span class=\"ds-zona-barra\"></span><span class=\"ds-zona-bpm\">152–171 bpm</span></div></div>",
+      "css": ".ds-zona { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: center; color: #16302B; } .ds-zona-num { display: grid; place-items: center; min-height: 3.5rem; border: 2px solid rgb(22 48 43 / 0.4); background: #F7FAF6; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 1.125rem; font-weight: 700; transition: background-color 150ms, border-color 150ms; } .ds-zona-num--foco { border-color: #16302B; background: #FF5A1F; } .ds-zona-trilho { position: relative; height: 3.5rem; border-left: 1px solid #16302B; } .ds-zona-barra { position: absolute; top: 0.5rem; bottom: 0.5rem; left: 45%; width: 20%; background: #FF5A1F; transition: left 500ms cubic-bezier(0.16, 1, 0.3, 1), width 500ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-zona-bpm { position: absolute; top: 0; bottom: 0; left: 67%; display: flex; align-items: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; font-size: 1.16rem; font-weight: 700; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Ficha de Avaliação",
+    "overview": "O site inteiro é uma ficha antropométrica preenchida à mão: papel milimetrado verde-claro, tinta verde-escura de prontuário e um laranja de carimbo que só aparece onde há ação ou leitura. Cada superfície é um documento de avaliação (campos com linha pontilhada, caixas de marcação desenhadas, tabela de medidas, régua de ajuste, assinatura do aluno), não um panfleto de academia. A densidade é a de um formulário: blocos retangulares com contorno de tinta de 2px, rótulos pequenos em caixa-alta, números alinhados em mono tabular.\n\nA hierarquia vem do peso, não da cor. Títulos em Archivo Black, caixa-alta e entrelinha apertada dominam o papel; o corpo em Public Sans fica em tinta suave; o laranja é reservado ao que o visitante pode apertar ou ao que foi medido. O movimento segue a mesma gramática física: o carimbo pressiona, a marca de checagem se desenha, a barra de zona cresce, sempre a partir de um estado já legível.\n\nO sistema rejeita, por decisão confirmada, o código visual da categoria: foto escura de academia, vermelho-fogo em caixa-alta sobre preto e grade de cards iguais. O visual é sempre claro (modo de cor travado em `light`): a ficha é papel.",
+    "keyCharacteristics": [
+      "Fundo de papel com quadrícula milimetrada (linha fina a cada 8px, forte a cada 40px).",
+      "Contornos de tinta de 2px e cantos retos em tudo que é campo, ficha ou botão.",
+      "Laranja de carimbo como único sinal ativo; nunca como superfície de seção.",
+      "Archivo 900 em caixa-alta para títulos; Public Sans no corpo; JetBrains Mono só em valores medidos.",
+      "Estado marcado a caneta (X, check, traço) e não apenas por cor."
+    ],
+    "rules": [
+      { "name": "A Regra do Carimbo Único", "body": "O laranja marca apenas o que se aperta ou o que foi medido: botão de ação, carimbo, marcador ativo, barra de FC. Nunca é fundo de seção nem faixa de largura total. Se uma tela tiver laranja em algo que não é ação, leitura ou estado ativo, está errado.", "section": "colors" },
+      { "name": "A Regra do Chão de Papel", "body": "Toda seção vive sobre o papel com quadrícula (inteiro ou `papel-claro` a 60%). A única superfície escura é o rodapé em tinta. Não existem seções escuras nem seções laranja.", "section": "colors" },
+      { "name": "A Regra do Mono Medido", "body": "JetBrains Mono só em valores medidos com unidade ou escala (bpm, cm, mm, °, anos, faixas de zona). Nunca em rótulos, ordinais, navegação ou texto decorativo.", "section": "typography" },
+      { "name": "A Regra da Entrelinha Mínima", "body": "Títulos display e headline usam entrelinha ≥ 0.96. Abaixo disso os acentos do português (É, Ç, Ã) e a pontuação colidem com a linha de cima.", "section": "typography" },
+      { "name": "A Regra do Peso que Sobe", "body": "Na calculadora de FC o peso do número cresce com a intensidade da zona (400 → 800) e o tamanho sobe 0.07rem por zona. Intensidade se lê em peso, não em cor.", "section": "typography" },
+      { "name": "A Regra do Papel sobre Papel", "body": "Profundidade é folha clara com contorno de tinta. Sombra só como ar difuso sob algo físico (botão, foto, folha); nunca deslocada e dura.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do manter toda seção sobre o papel quadriculado (`papel` ou `papel-claro` a 60%), separada por uma divisória de tinta de 2px.",
+      "Do usar o laranja carimbo só em botão de ação, carimbo, marcador ativo e barras de FC, sempre com texto em tinta por cima.",
+      "Do usar o laranja de leitura (`carimbo-texto`) quando o laranja precisar ser texto sobre papel.",
+      "Do escrever todo número medido em JetBrains Mono tabular, com a unidade em Public Sans menor e tinta suave.",
+      "Do manter entrelinha ≥ 0.96 nos títulos display e headline em caixa-alta.",
+      "Do mostrar estado como marca de caneta (X, check, traço que cresce) além da cor.",
+      "Do animar a partir de um estado já legível (carimbo que pressiona, marca que se desenha) e respeitar `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "Don't usar o laranja como fundo de seção, faixa de largura total ou superfície decorativa.",
+      "Don't criar seções escuras; o rodapé em tinta é a única superfície escura.",
+      "Don't usar JetBrains Mono em rótulos, navegação, ordinais ou texto que não seja medida.",
+      "Don't pôr rótulo pequeno em caixa-alta (sobretítulo) acima dos títulos de seção; o título abre a seção sozinho.",
+      "Don't arredondar folhas, botões ou caixas de marcação; o círculo é só do marco anatômico e do carimbo.",
+      "Don't usar sombra dura deslocada; sombra é sempre difusa e com espalhamento negativo.",
+      "Don't voltar ao código da categoria: foto escura de academia, vermelho-fogo sobre preto, grade de cards iguais."
+    ]
+  }
+}

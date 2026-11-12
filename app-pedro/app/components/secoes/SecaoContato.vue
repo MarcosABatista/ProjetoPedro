@@ -1,63 +1,54 @@
-<!-- app/components/secoes/SecaoContato.vue — Chamada final de conversão (CTA de contato). -->
-<!-- Faixa de alto contraste em primary com WhatsApp, telefone e Instagram do Pedro. -->
-<!-- Último empurrão para o agendamento antes do rodapé. -->
-
-<script setup lang="ts">
-// Constantes de contato vêm de app/utils/conteudo.ts (auto-import).
-</script>
+<!-- app/components/secoes/SecaoContato.vue — Fechamento da página: chamada final num painel lima. -->
+<!-- É o único painel inteiro em lima: o laudo termina na ação. WhatsApp em grafite, Instagram e telefone ao lado. -->
 
 <template>
   <section
     id="contato"
-    class="relative overflow-hidden bg-zinc-950 py-24 sm:py-32"
+    class="px-2 pt-8 pb-4 sm:px-4"
   >
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <div class="relative overflow-hidden rounded-3xl border border-primary/25 bg-zinc-900 p-10 ring-1 ring-white/5 sm:p-16">
-        <!-- Brasa sutil nos cantos (dá o ar agressivo sem o vermelho chapado) -->
-        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(217,45,32,0.22),transparent_55%)]" />
-        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(217,45,32,0.14),transparent_55%)]" />
+    <div class="relative isolate mx-auto max-w-[96rem] overflow-hidden rounded-[2.5rem] bg-lima-400 px-6 py-16 text-grafite sm:rounded-[3.5rem] sm:px-12 sm:py-24 lg:px-20">
+      <h2 class="titulo max-w-4xl text-[clamp(2.8rem,8.5vw,6rem)]">
+        Bora começar seu treino?
+      </h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-grafite/80 sm:text-xl">
+        Agende seu horário, tire suas dúvidas e comece com acompanhamento profissional de verdade. Bons treinos!
+      </p>
 
-        <div class="relative text-center">
-          <h2 class="font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl">
-            Bora começar seu <span class="text-primary">treino?</span>
-          </h2>
-          <p class="mx-auto mt-4 max-w-xl text-lg text-zinc-300">
-            Agende seu horário, tire suas dúvidas e comece hoje com acompanhamento
-            profissional de verdade. Bons treinos!
-          </p>
-
-          <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <UButton
-              :to="CONTATO_WHATSAPP_URL"
-              target="_blank"
-              icon="i-simple-icons-whatsapp"
-              color="primary"
-              size="xl"
-              class="font-display font-semibold uppercase tracking-wide"
-            >
-              Chamar no WhatsApp
-            </UButton>
-            <UButton
-              :to="CONTATO_INSTAGRAM_URL"
-              target="_blank"
-              icon="i-simple-icons-instagram"
-              color="neutral"
-              variant="subtle"
-              size="xl"
-              class="font-display font-semibold uppercase tracking-wide"
-            >
-              Seguir no Instagram
-            </UButton>
-          </div>
-
-          <div class="mt-10 flex items-center justify-center gap-2 text-zinc-400">
-            <UIcon
-              name="i-lucide-phone"
-              class="size-5 text-primary"
-            />
-            <span class="font-semibold text-zinc-200">{{ CONTATO_TELEFONE }}</span>
-          </div>
-        </div>
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+        <a
+          :href="CONTATO_WHATSAPP_URL"
+          target="_blank"
+          rel="noopener"
+          class="botao-grafite px-7 py-4 text-lg"
+        >
+          <UIcon
+            name="i-simple-icons-whatsapp"
+            class="size-5 text-lima-400"
+          />
+          Chamar no WhatsApp
+        </a>
+        <a
+          :href="CONTATO_INSTAGRAM_URL"
+          target="_blank"
+          rel="noopener"
+          class="botao-fio px-7 py-4 text-lg"
+        >
+          <UIcon
+            name="i-simple-icons-instagram"
+            class="size-5"
+          />
+          Instagram
+        </a>
+        <a
+          :href="CONTATO_TELEFONE_URL"
+          class="medida inline-flex items-center gap-2 rounded-full px-3 py-4 text-base underline decoration-grafite/30 underline-offset-4 hover:decoration-grafite sm:ml-2"
+        >
+          <UIcon
+            name="i-lucide-phone"
+            class="size-5"
+          />
+          {{ CONTATO_TELEFONE }}
+        </a>
       </div>
     </div>
   </section>

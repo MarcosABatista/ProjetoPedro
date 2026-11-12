@@ -21,10 +21,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  // Visual agressivo é sempre escuro — fixa o color mode em dark
+  // O laudo é claro por natureza: modo de cor travado em light
   colorMode: {
-    preference: 'dark',
-    fallback: 'dark'
+    preference: 'light',
+    fallback: 'light'
   },
 
   routeRules: {
@@ -47,11 +47,13 @@ export default defineNuxtConfig({
     }
   },
 
-  // Fontes impactantes: Oswald (títulos) + Inter (corpo), servidas localmente
+  // Fontes do laudo: Funnel Display (títulos), Funnel Sans (corpo), Geist Mono (só medidas).
+  // Baixadas no build e servidas pelo próprio site (@nuxt/fonts).
   fonts: {
     families: [
-      { name: 'Oswald', provider: 'google', weights: [500, 600, 700] },
-      { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700] }
+      { name: 'Funnel Display', provider: 'google', weights: [500, 600, 700, 800] },
+      { name: 'Funnel Sans', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Geist Mono', provider: 'google', weights: [300, 400, 500, 600, 700] }
     ]
   }
 })

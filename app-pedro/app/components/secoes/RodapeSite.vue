@@ -1,41 +1,50 @@
-<!-- app/components/secoes/RodapeSite.vue — Rodapé do site com marca, redes sociais e copyright. -->
-<!-- Encerra a página reforçando a identidade e oferecendo os links de redes do Pedro. -->
+<!-- app/components/secoes/RodapeSite.vue — Rodapé: nome, redes e copyright. -->
+<!-- Linha discreta sobre a névoa, depois do painel lima de contato. -->
 
 <script setup lang="ts">
 const ano = new Date().getFullYear()
-
-const redes = [
-  { icone: 'i-simple-icons-instagram', url: CONTATO_INSTAGRAM_URL, rotulo: 'Instagram' },
-  { icone: 'i-simple-icons-whatsapp', url: CONTATO_WHATSAPP_URL, rotulo: 'WhatsApp' }
-]
 </script>
 
 <template>
-  <footer class="border-t border-white/10 bg-zinc-950 py-12">
-    <div class="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
-      <a
-        href="#inicio"
-        class="font-display text-2xl font-bold uppercase tracking-tight text-white"
-      >
-        Pedro<span class="text-primary">Moura</span>
-      </a>
-
-      <div class="flex items-center gap-3">
-        <UButton
-          v-for="rede in redes"
-          :key="rede.rotulo"
-          :to="rede.url"
+  <footer class="py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+      <p class="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
+        <span
+          class="grid size-7 place-items-center rounded-full bg-grafite"
+          aria-hidden="true"
+        >
+          <span class="size-2 rounded-full bg-lima-400" />
+        </span>
+        Pedro Moura Filho
+      </p>
+      <div class="flex items-center gap-1">
+        <a
+          :href="CONTATO_INSTAGRAM_URL"
           target="_blank"
-          :icon="rede.icone"
-          :aria-label="rede.rotulo"
-          color="neutral"
-          variant="ghost"
-          size="lg"
-        />
+          rel="noopener"
+          aria-label="Instagram"
+          class="grid size-11 place-items-center rounded-full transition-colors hover:bg-white"
+        >
+          <UIcon
+            name="i-simple-icons-instagram"
+            class="size-5"
+          />
+        </a>
+        <a
+          :href="CONTATO_WHATSAPP_URL"
+          target="_blank"
+          rel="noopener"
+          aria-label="WhatsApp"
+          class="grid size-11 place-items-center rounded-full transition-colors hover:bg-white"
+        >
+          <UIcon
+            name="i-simple-icons-whatsapp"
+            class="size-5"
+          />
+        </a>
       </div>
-
-      <p class="text-sm text-zinc-500">
-        © {{ ano }} Pedro Moura Filho — Personal Trainer
+      <p class="text-sm text-tinta-suave">
+        © {{ ano }} Pedro Moura Filho · Personal trainer
       </p>
     </div>
   </footer>

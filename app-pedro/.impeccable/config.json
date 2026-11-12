@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/decisao/assigned.html"
+        ],
+        "createdAt": "2026-11-12T18:35:49.053Z",
+        "reason": "Claude: rascunho da direção não escolhida no round de decisão; não é página publicada"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/decisao/xilo.html"
+        ],
+        "createdAt": "2026-11-12T18:52:26.818Z",
+        "reason": "Claude: rascunho descartado do round de decisão (direção Gravura de Cordel), não é página publicada"
+      }
+    ]
+  }
+}

@@ -1,124 +1,61 @@
-<!-- app/components/secoes/SecaoInicio.vue — Hero principal da landing (above the fold). -->
-<!-- Fundo escuro com imagem, nome em tipografia display gigante, credenciais e CTA de WhatsApp. -->
-<!-- É o ponto de maior impacto visual: define o tom agressivo de alta performance. -->
-
-<script setup lang="ts">
-// Conteúdo vem de app/utils/conteudo.ts (auto-import).
-</script>
+<!-- app/components/secoes/SecaoInicio.vue — Primeira dobra: o laudo do visitante. -->
+<!-- Escaneamento corporal com marcos ISAK à esquerda; título, apresentação e a ficha de interesse à direita. -->
+<!-- A ação principal (escolher trilha e chamar no WhatsApp) já funciona aqui, sem rolar. -->
 
 <template>
   <section
     id="inicio"
-    class="relative flex min-h-screen items-center overflow-hidden bg-zinc-950"
+    class="relative overflow-x-clip pt-24 sm:pt-28"
   >
-    <!-- Imagem de fundo + overlays -->
-    <div class="absolute inset-0">
-      <img
-        :src="urlPublica('/img/hero-bg.jpg')"
-        alt=""
-        class="size-full object-cover object-center opacity-30"
-        loading="eager"
-        fetchpriority="high"
-      >
-      <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
-      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent" />
-    </div>
+    <!-- Luz de laboratório: brilho frio no alto da página -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[46rem] bg-[radial-gradient(70%_60%_at_70%_0%,#FFFFFF,transparent)]"
+      aria-hidden="true"
+    />
 
-    <!-- Conteúdo -->
-    <div class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-4 pt-28 pb-16 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div>
-        <UBadge
-          color="primary"
-          variant="soft"
-          size="lg"
-          class="mb-6 font-display font-semibold uppercase tracking-widest"
-        >
-          Personal Trainer
-        </UBadge>
-
-        <h1 class="font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
-          Pedro Moura
-          <span class="block text-primary">Filho</span>
+    <div class="mx-auto grid max-w-7xl gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-7 lg:px-8 lg:pb-28">
+      <!-- Título e ficha -->
+      <div class="entrada min-w-0 lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:pt-2">
+        <h1 class="titulo text-[clamp(3.1rem,8.4vw,5.4rem)] font-bold">
+          Seu corpo,
+          <span class="relative isolate inline-block whitespace-nowrap">
+            <span
+              class="destaque absolute inset-x-[-0.08em] bottom-[0.08em] -z-10 h-[0.36em] rounded-full bg-lima-400"
+              aria-hidden="true"
+            />
+            medido.
+          </span>
         </h1>
 
-        <p class="mt-6 max-w-xl text-lg text-zinc-300">
-          Treino que não é achismo. Ciência aplicada ao seu corpo com
-          <span class="font-semibold text-white">biomecânica</span>,
-          <span class="font-semibold text-white">fisiologia do exercício</span> e
-          <span class="font-semibold text-white">antropometria ISAK</span>.
+        <p class="mt-5 max-w-[34rem] text-lg leading-relaxed text-pretty text-tinta-suave sm:text-xl">
+          Treino prescrito a partir dos seus números, por um
+          <strong class="font-semibold text-grafite">antropometrista ISAK</strong> pós-graduado em
+          <strong class="font-semibold text-grafite">biomecânica</strong>.
         </p>
-
-        <ul class="mt-8 space-y-3">
-          <li
-            v-for="credencial in PEDRO_CREDENCIAIS"
-            :key="credencial.texto"
-            class="flex items-center gap-3 text-zinc-200"
-          >
-            <UIcon
-              :name="credencial.icone"
-              class="size-5 shrink-0 text-primary"
-            />
-            <span class="text-sm sm:text-base">{{ credencial.texto }}</span>
-          </li>
-        </ul>
-
-        <div class="mt-10 flex flex-wrap gap-4">
-          <UButton
-            :to="CONTATO_WHATSAPP_URL"
-            target="_blank"
-            icon="i-simple-icons-whatsapp"
-            color="primary"
-            size="xl"
-            class="font-display font-semibold uppercase tracking-wide"
-          >
-            Entrar em contato
-          </UButton>
-          <UButton
-            to="#especialidades"
-            color="neutral"
-            variant="outline"
-            size="xl"
-            trailing-icon="i-lucide-arrow-down"
-            class="font-display font-semibold uppercase tracking-wide"
-          >
-            Conhecer o método
-          </UButton>
-        </div>
-
-        <!-- Números de impacto -->
-        <div class="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-white/10 pt-8">
-          <div
-            v-for="numero in PEDRO_NUMEROS"
-            :key="numero.rotulo"
-          >
-            <p class="font-display text-3xl font-bold text-primary sm:text-4xl">
-              {{ numero.valor }}
-            </p>
-            <p class="mt-1 text-xs uppercase tracking-wide text-zinc-400">
-              {{ numero.rotulo }}
-            </p>
-          </div>
-        </div>
       </div>
 
-      <!-- Foto do Pedro — visível também no mobile (menor e centralizada), e maior no desktop -->
-      <div class="relative mx-auto w-full max-w-xs sm:max-w-sm lg:order-last lg:max-w-md">
-        <!-- Brasa difusa atrás da foto (sem borda dura) -->
-        <div class="absolute -inset-6 rounded-full bg-primary/20 blur-3xl" />
-
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl shadow-black/50">
-          <img
-            :src="urlPublica('/img/pedro2.jpg')"
-            alt="Pedro Moura Filho, personal trainer"
-            class="size-full object-cover object-top"
-            loading="eager"
-          >
-          <!-- Degradê na base para fundir a foto com o fundo escuro -->
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
-          <!-- Moldura tingida de brasa, sem branco -->
-          <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-primary/30" />
-        </div>
+      <!-- Escaneamento (no celular vem antes da ficha: primeiro o corpo medido, depois a ação) -->
+      <div class="min-w-0 lg:col-span-6 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:pt-2">
+        <LaudoEscaneamentoCorpo />
       </div>
+
+      <LaudoFormularioTrilha class="entrada min-w-0 lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:self-start" />
     </div>
   </section>
 </template>
+
+<style scoped>
+.entrada {
+  animation: assentar 900ms var(--ease-laudo) both;
+}
+
+.destaque {
+  transform-origin: left center;
+  animation: riscar 900ms 350ms var(--ease-laudo) both;
+}
+
+@keyframes riscar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+</style>

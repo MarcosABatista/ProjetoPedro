@@ -14,6 +14,12 @@ export default withNuxt(
           ['^v-bind:ui$', [{ match: 'objectValues' }]]
         ]
       }
+    },
+    rules: {
+      // Classes de <style scoped> do laudo (varredura, marcas, barras) e o escopo de foco em painéis escuros
+      'better-tailwindcss/no-unknown-classes': ['error', {
+        ignore: ['^no-escuro$', '^varredura-(mascara|barra)$', '^anel$', '^fatia(--cheia)?$', '^entrada$', '^destaque$', '^controle$', '^marca(--desenhada)?$']
+      }]
     }
   }
 )

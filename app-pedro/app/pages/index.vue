@@ -1,18 +1,18 @@
-<!-- app/pages/index.vue — Página única (landing) do personal trainer Pedro Moura. -->
-<!-- Compõe as seções na ordem de conversão: início, especialidades, depoimentos, contato, rodapé. -->
+<!-- app/pages/index.vue — Página única (landing) do personal trainer Pedro Moura, desenhada como laudo de composição corporal. -->
+<!-- Ordem: escaneamento e ficha de interesse, avaliação, método, zonas de FC, trilhas, depoimentos, responsável técnico, contato. -->
 <!-- Rota prerenderizada (routeRules em nuxt.config) para carregamento instantâneo. -->
 
-<script setup lang="ts">
-// Componentes de seção são auto-importados de app/components/secoes/.
-</script>
-
 <template>
-  <div class="min-h-screen bg-zinc-950 text-white antialiased">
+  <div class="min-h-screen text-grafite">
     <SecoesCabecalhoSite />
     <main>
       <SecoesSecaoInicio />
-      <SecoesSecaoEspecialidades />
+      <SecoesSecaoAvaliacao />
+      <SecoesSecaoMetodo />
+      <SecoesSecaoZonasFc />
+      <SecoesSecaoTrilhas />
       <SecoesSecaoDepoimentos />
+      <SecoesSecaoResponsavel />
       <SecoesSecaoContato />
     </main>
     <SecoesRodapeSite />

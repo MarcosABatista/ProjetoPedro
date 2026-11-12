@@ -2,52 +2,220 @@
 @import "@nuxt/ui";
 
 /* ====================================================================
-   Design system — Pedro Moura | Personal Trainer de alta performance
-   Assinatura visual: agressiva, escura, energética.
-   - primary: vermelho-fogo (energia, intensidade, treino pesado)
-   - neutral: zinc (quase-preto, estética de academia premium)
-   Fontes: Oswald (títulos, condensada e forte) + Inter (corpo, legível).
+   Design system — Pedro Moura | Laudo de Composição Corporal
+   A ficha de avaliação virou laudo premium: névoa mineral fria como chão,
+   grafite como tinta e painel escuro, lima elétrica como único sinal de
+   ação e de músculo. Funnel Display (títulos), Funnel Sans (corpo),
+   Geist Mono só em medidas. Painéis de raio grande, botões em pílula.
    ==================================================================== */
 
 @theme static {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-display: 'Oswald', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Funnel Sans', system-ui, sans-serif;
+  --font-display: 'Funnel Display', 'Funnel Sans', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
 
-  --ui-radius: 0.5rem;
-  --ui-container: 80rem;
+  --ui-radius: 0.75rem;
+  --ui-container: 84rem;
 
-  /* Vermelho-brasa como cor primária — energético, mas mais profundo e sofisticado
-     (menos saturado que o vermelho puro, evita o visual "berrante"). */
-  --color-fogo-50: #FEF3F2;
-  --color-fogo-100: #FEE4E2;
-  --color-fogo-200: #FECDCA;
-  --color-fogo-300: #FDA29B;
-  --color-fogo-400: #F97066;
-  --color-fogo-500: #F04438;
-  --color-fogo-600: #D92D20;
-  --color-fogo-700: #B42318;
-  --color-fogo-800: #912018;
-  --color-fogo-900: #7A271A;
-  --color-fogo-950: #55160C;
+  /* Chão e tinta do laudo */
+  --color-nevoa: #ECEFEA;
+  --color-nevoa-clara: #F6F7F4;
+  --color-salvia: #D3DBD1;
+  --color-grafite: #121614;
+  --color-grafite-painel: #1A201D;
+  --color-grafite-linha: #2C3530;
+  --color-tinta-suave: #4B5550;
+  --color-nevoa-suave: #A9B4AE;
+  --color-ambar: #FFB547;
+
+  /* Lima de sinal (primary) — 400 é a marca; 700 para texto sobre névoa */
+  --color-lima-50: #F8FDE6;
+  --color-lima-100: #EEFAC2;
+  --color-lima-200: #E3F68F;
+  --color-lima-300: #DAF46A;
+  --color-lima-400: #D4F24A;
+  --color-lima-500: #BEDD2E;
+  --color-lima-600: #93AD14;
+  --color-lima-700: #5E7110;
+  --color-lima-800: #4A5810;
+  --color-lima-900: #3D4911;
+  --color-lima-950: #202903;
+
+  /* Neutro grafite-esverdeado para os componentes do Nuxt UI */
+  --color-grafite-50: #F6F7F4;
+  --color-grafite-100: #ECEFEA;
+  --color-grafite-200: #D3DBD1;
+  --color-grafite-300: #A9B4AE;
+  --color-grafite-400: #7A8680;
+  --color-grafite-500: #5E6964;
+  --color-grafite-600: #4B5550;
+  --color-grafite-700: #2C3530;
+  --color-grafite-800: #1A201D;
+  --color-grafite-900: #121614;
+  --color-grafite-950: #0A0D0B;
+
+  --ease-laudo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-assentar: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --shadow-painel: 0 1px 0 rgb(255 255 255 / 0.8) inset, 0 24px 48px -28px rgb(18 22 20 / 0.35), 0 4px 12px -6px rgb(18 22 20 / 0.08);
+  --shadow-flutuante: 0 18px 40px -18px rgb(18 22 20 / 0.45);
 }
 
-/* Títulos usam a fonte display condensada */
-.font-display {
-  font-family: var(--font-display);
-}
-
-/* Restaura cursor pointer (Tailwind v4 usa default) */
-button:not(:disabled),
-[role="button"]:not(:disabled) {
-  cursor: pointer;
-}
-
-/* Realce de seleção de texto com a cor da marca */
-::selection {
-  background: var(--color-fogo-600);
-  color: white;
+:root {
+  --ui-bg: var(--color-nevoa);
+  --ui-text: var(--color-grafite);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background: var(--color-nevoa);
+  color: var(--color-grafite);
+  scrollbar-color: var(--color-nevoa-suave) var(--color-nevoa);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-nevoa);
+  caret-color: var(--color-lima-600);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Medidas e números sempre tabulares */
+@utility medida {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Voz dos títulos: Funnel Display apertada, caixa normal */
+@utility titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-lima-400);
+  color: var(--color-grafite);
+}
+
+a {
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-grafite);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+.no-escuro :focus-visible,
+.no-escuro:focus-visible {
+  outline-color: var(--color-lima-400);
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled),
+label[for] {
+  cursor: pointer;
+}
+
+/* Painel claro do laudo */
+@utility painel {
+  background: #FFFFFF;
+  border-radius: 2rem;
+  box-shadow: var(--shadow-painel);
+}
+
+/* Botão de ação: pílula lima com tinta grafite */
+@utility botao-lima {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-lima-400);
+  color: var(--color-grafite);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset, 0 10px 24px -12px color-mix(in srgb, var(--color-lima-700) 70%, transparent);
+  transition: transform 220ms var(--ease-laudo), box-shadow 220ms var(--ease-laudo), background-color 220ms;
+
+  &:hover {
+    background: var(--color-lima-300);
+    transform: translateY(-2px);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset, 0 16px 30px -14px color-mix(in srgb, var(--color-lima-700) 80%, transparent);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Botão escuro: pílula grafite */
+@utility botao-grafite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-grafite);
+  color: var(--color-nevoa-clara);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 220ms var(--ease-laudo), background-color 220ms;
+
+  &:hover {
+    background: var(--color-grafite-linha);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Botão de contorno: pílula com fio */
+@utility botao-fio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: border-color 220ms, background-color 220ms, transform 220ms var(--ease-laudo);
+
+  &:hover {
+    border-color: currentColor;
+    transform: translateY(-2px);
+  }
+}
+
+/* Entrada que assenta: elemento já visível sobe e nitidiza */
+@keyframes assentar {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }
