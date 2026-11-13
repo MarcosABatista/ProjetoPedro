@@ -8,7 +8,7 @@ withDefaults(defineProps<{ prioridade?: boolean, alt?: string }>(), { prioridade
 <template>
   <div class="overflow-hidden bg-salvia">
     <img
-      :src="urlPublica('/img/pedro2.jpg')"
+      :src="urlPublica('/img/WhatsApp Image 2026-11-12 at 20.11.58.jpeg')"
       :alt="alt"
       class="size-full scale-[1.34] object-cover object-[50%_40%]"
       width="1170"

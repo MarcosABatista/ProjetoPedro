@@ -105,9 +105,9 @@ export interface Credencial {
 }
 
 export const PEDRO_CREDENCIAIS: readonly Credencial[] = [
-  { icone: 'i-lucide-graduation-cap', texto: 'Licenciatura e Bacharelado em Educação Física' },
-  { icone: 'i-lucide-bone', texto: 'Pós-graduado em Biomecânica' },
-  { icone: 'i-lucide-activity', texto: 'Especializando em Fisiologia do Exercício' },
+  { icone: 'i-lucide-graduation-cap', texto: 'Mestrando em Educação Física pela UFMA' },
+  { icone: 'i-lucide-bone', texto: 'Especialização em Biomecânica' },
+  { icone: 'i-lucide-activity', texto: 'Especialização em Fisiologia do Exercício' },
   { icone: 'i-lucide-microscope', texto: 'Membro do LACE-UFMA' },
   { icone: 'i-lucide-ruler', texto: 'Antropometrista ISAK Nível 1' }
 ]
